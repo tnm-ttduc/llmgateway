@@ -2228,6 +2228,67 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/admin/models/{modelId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    modelId: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Model detail with per-provider stats. */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            model: {
+                                id: string;
+                                name: string;
+                                family: string;
+                                free: boolean;
+                                stability: string;
+                                status: string;
+                                logsCount: number;
+                                errorsCount: number;
+                                cachedCount: number;
+                                avgTimeToFirstToken: number | null;
+                                providerCount: number;
+                                updatedAt: string;
+                            };
+                            providers: {
+                                providerId: string;
+                                providerName: string;
+                                logsCount: number;
+                                errorsCount: number;
+                                cachedCount: number;
+                                avgTimeToFirstToken: number | null;
+                                updatedAt: string;
+                            }[];
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/admin/organizations/{orgId}/gift-credits": {
         parameters: {
             query?: never;
@@ -2367,67 +2428,6 @@ export interface paths {
                                 avgTtft: number | null;
                                 avgDuration: number | null;
                                 totalTokens: number;
-                            }[];
-                        };
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/admin/models/{modelId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    modelId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Model detail with per-provider stats. */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": {
-                            model: {
-                                id: string;
-                                name: string;
-                                family: string;
-                                free: boolean;
-                                stability: string;
-                                status: string;
-                                logsCount: number;
-                                errorsCount: number;
-                                cachedCount: number;
-                                avgTimeToFirstToken: number | null;
-                                providerCount: number;
-                                updatedAt: string;
-                            };
-                            providers: {
-                                providerId: string;
-                                providerName: string;
-                                logsCount: number;
-                                errorsCount: number;
-                                cachedCount: number;
-                                avgTimeToFirstToken: number | null;
-                                updatedAt: string;
                             }[];
                         };
                     };
