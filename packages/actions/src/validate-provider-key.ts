@@ -50,6 +50,12 @@ export async function validateProviderKey(
 				provider,
 				validationModel,
 			});
+		} else if (provider === "anthropic") {
+			validationModel = "claude-haiku-4-5";
+			logger.debug("Using fixed Anthropic validation model", {
+				provider,
+				validationModel,
+			});
 		} else if (provider === "google-ai-studio") {
 			validationModel = "gemini-2.5-flash-lite";
 			logger.debug("Using fixed Google AI Studio validation model", {
