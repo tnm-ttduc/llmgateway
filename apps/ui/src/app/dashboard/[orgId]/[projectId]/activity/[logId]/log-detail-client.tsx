@@ -35,10 +35,11 @@ import {
 import { useApi } from "@/lib/fetch-client";
 import { cn } from "@/lib/utils";
 
+import type { LogDetailData } from "@/types/activity";
 import type { Log } from "@llmgateway/db";
 
 interface LogDetailClientProps {
-	initialData: { log: Log } | null;
+	initialData: LogDetailData | null;
 	orgId: string;
 	projectId: string;
 	logId: string;
@@ -168,21 +169,7 @@ export function LogDetailClient({
 		"/logs/{id}",
 		{ params: { path: { id: logId } } },
 		{
-			initialData: initialData
-				? {
-						log: {
-							...initialData.log,
-							createdAt:
-								initialData.log.createdAt instanceof Date
-									? initialData.log.createdAt.toISOString()
-									: initialData.log.createdAt,
-							updatedAt:
-								initialData.log.updatedAt instanceof Date
-									? initialData.log.updatedAt.toISOString()
-									: initialData.log.updatedAt,
-						},
-					}
-				: undefined,
+			initialData: initialData ?? undefined,
 			refetchOnWindowFocus: false,
 			staleTime: 5 * 60 * 1000,
 		},
