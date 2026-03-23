@@ -56,6 +56,7 @@ export function getProviderHeaders(
 		case "nebius":
 		case "zai":
 		case "canopywave":
+		case "embercloud":
 		case "custom":
 		default:
 			return {
