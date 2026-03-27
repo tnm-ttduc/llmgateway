@@ -69,7 +69,7 @@ services:
       - NODE_ENV=production
       - RUN_MIGRATIONS=true
       - PORT=80
-						- REDIS_HOST=redis
+      - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_dev_password}
       - DATABASE_URL=postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-llmgateway_dev_password}@postgres:5432/${POSTGRES_DB:-llmgateway}
